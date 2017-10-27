@@ -3,9 +3,8 @@ import {css} from 'glamor';
 import { push } from 'react-router-redux';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import tachyons from 'tachyons';
 
-const Home = props => (
+const Goals = props => (
 <div className="w-100 fl-ns cf">
   <div className="w-100 fl-ns bg-white cf f3">
     <div className="w-90 fl-ns pl4 pt2 pb2">Final Quadrant Task Management</div>
@@ -23,23 +22,10 @@ const Home = props => (
       <div className="mt3 pl4 pr4 f4">Description: <br/>
         This task is to make authentication module i.e login, signup taking into consideration user roles and other user powers.
       </div>
-      <div className="mt4 mw5 pb5 center">
-        <div className="f5 b">Email</div>
-        <div className="mt2">
-          <input className="w-100" placeholder="Enter your email" type="text" {...css({height: '8%'})}/>
-        </div>
-        <div className="f5 b mt3">Password</div>
-        <div className="mt2">
-          <input className="w-100" placeholder="Enter your password" type="password" {...css({height: '8%'})} />
-        </div>
-        <div className="mt3">
-          <a className="w-100 pointer f5 link dim bg-pink tc pv2 b dib white">Login</a>
-        </div>
-      </div>
     </div>
   </div>
-</div>  
+</div>
 )
 
 export default connect(
-)(Home)
+)(Goals)
