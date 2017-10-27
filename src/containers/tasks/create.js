@@ -47,27 +47,31 @@ class Login extends React.Component {
   render() {
     return (
       <div className="w-100 h-100 fl-ns cf bg-pink">
-        <div className="mw8 mt5 mb5 center pb4 bg-white">
-          <div className="tc f3 pt4">Final Quadrant Task Management</div>
-          <div className="tc mt5 f4 b">Welcome Back !</div>
-          <div className="mt4 mw5 pb5 center">
-            <div className="f5 b">Email</div>
-            <div className="mt2 f5">
-              <input className="w-100 f5" placeholder="Enter your username" type="text" {...css({height: '8%'})} ref={'username'}/>
-                {this.state.usernameErr ? (
-                  <div>Username is not valid</div>
-                ) : null}
+        <div className="mw6 mt5 mb5 br3 center bg-white" style={{paddingBottom: '35%'}}>
+          <div className="f3 pt3 tc">
+            Create New Task
+          </div>
+          <div className="w-90 pt3 fl-ns pl4 pb6">
+            <div className="w-100 fl-ns">Title</div>
+            <div className="w-100 mt2">
+              <input className="w-100 f6 pa1" placeholder="" type="text" style={{borderColor: 'transparent', boxShadow: 'rgba(0,0,0,0.5) 0px 0px 8px 0px', height: '35px'}} ref={''}/>
             </div>
-            <div className="f5 b mt3">Password</div>
-            <div className="mt2 f5">
-              <input className="w-100 f5" placeholder="Enter your password" type="password" ref={'password'} {...css({height: '8%'})} />
-                {this.state.passwordErr ? (
-                  <div>Password is not valid</div>
-                ) : null}
+            <div className="w-100 fl-ns mt2">Description</div>
+            <div className="w-100 mt2">
+              <textarea className="w-100 f6 pa1" placeholder="" rows="6" style={{borderColor: 'transparent', boxShadow: 'rgba(0,0,0,0.5) 0px 0px 8px 0px'}} ref={''}/>
             </div>
-            <div className="mt3 pb5">
-              <a className="w-100 pointer f5 link dim bg-pink tc pv2 b dib white" onClick={(ev) => this.attemptLogin(ev)}>Login</a>
+            <div className="w-100 fl-ns mt2">Assinged to</div>
+            <div className="w-100 mt2">
+              <input className="w-100 f6 pa1" placeholder="" type="text" style={{borderColor: 'transparent', boxShadow: 'rgba(0,0,0,0.5) 0px 0px 8px 0px', height: '35px'}} ref={''}/>
             </div>
+            <div className="w-100 fl-ns mt2">Ends on</div>
+            <div className="w-100 mt2">
+              <input className="w-100 f6 pa1" placeholder="" type="text" style={{borderColor: 'transparent', boxShadow: 'rgba(0,0,0,0.5) 0px 0px 8px 0px', height: '35px'}} ref={''}/>
+            </div>
+            <div className="mt3 tc">
+              <button className="mt2 w-40 pointer f5 link dim bg-pink tc pv2 b dib white">Save</button>
+            </div>
+
           </div>
         </div>
       </div>

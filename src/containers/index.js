@@ -4,6 +4,7 @@ import Login from './auth/login';
 import Goals from './goals';
 import Create from './tasks/create';
 import List from './tasks/list';
+import View from './tasks/view';
 
 const App = () => (
   <div>
@@ -12,6 +13,7 @@ const App = () => (
       <Route exact path="/goals" component={Goals} />
       <Route exact path="/create" component={Create} />
       <Route exact path="/list" component={List} />
+      <Route exact path="/view" component={View} />
     </main>
   </div>
 )
