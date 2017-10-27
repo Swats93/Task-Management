@@ -54,8 +54,8 @@ class Create extends React.Component {
 
   render() {
     return (
-      <div className="w-100 h-100 fl-ns cf bg-pink">
-        <div className="mw6 mb5 br3 center bg-white" style={{marginTop: '3.5%', paddingBottom: '40%'}}>
+      <div className="w-100 h-100 fl-ns cf bg-light-gray">
+        <div className="mw6 mb5 br3 center bg-white" style={{marginTop: '3.5%', paddingBottom: '40%', boxShadow: 'rgba(0,0,0,0.5) 0px 0px 8px 0px', height: '29px'}}>
           <div className="f3 pt3 tc">
             Create New Task
           </div>

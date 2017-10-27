@@ -6,12 +6,12 @@ import { connect } from 'react-redux';
 
 const Goals = props => (
 <div className="w-100 fl-ns cf">
-  <div className="w-100 fl-ns bg-white cf f3">
+  <div className="w-100 fl-ns bg-light-gray bb bw2 b--black-20  cf f3">
     <div className="w-90 fl-ns pl4 pt2 pb2">Final Quadrant Task Management</div>
     <div className="w-10 fr-ns pr4 pt2 pb2">Logout</div>
   </div>
-  <div className="w-100 h-100 fl-ns pt3 pb6 cf bg-pink">
-    <div className="mw8 mt5 center pb6 bg-white" {...css({boxShadow: 'rgba(0,0,0,0.2) 0px 0px 8px 0px'})}>
+  <div className="w-100 h-100 fl-ns pt3 pb6 cf bg-light-gray">
+    <div className="mw8 mt5 center pb6 bg-white" style={{boxShadow: 'rgba(0,0,0,0.5) 0px 0px 8px 0px'}}>
       <div className="w-100 pt3 cf tr">
         <button className="pointer f5 link dim bg-pink tc pv2 b dib white">Save</button>
         <button className="pointer ml2 f5 link dim bg-pink tc pv2 b dib white">Cancel</button>

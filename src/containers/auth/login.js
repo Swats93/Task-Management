@@ -52,12 +52,12 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className="w-100 h-100 fl-ns cf bg-pink">
-        <div className="mw8 mt5 mb5 center pb4 bg-white">
-          <div className="tc f3 pt4">Final Quadrant Task Management</div>
-          <div className="tc mt5 f4 b">Welcome Back !</div>
+      <div className="w-100 h-100 fl-ns cf bg-light-gray">
+        <div className="mw8 mt5 mb5 center pb4 bg-white" style={{boxShadow: 'rgba(0,0,0,0.5) 0px 0px 8px 0px'}}>
+          <div className="tc f3 pt4 b">Final Quadrant Task Management</div>
           <div className="mt4 mw5 pb5 center">
-            <div className="f5 b">Email</div>
+            <div className="tc mt5 f4 b">Welcome Back !</div>
+            <div className="f5 mt3 b">Email</div>
             <div className="mt2">
               <input className="w-100 f6" placeholder="Enter your username" type="text" style={{borderColor: 'transparent', boxShadow: 'rgba(0,0,0,0.5) 0px 0px 8px 0px', height: '35px'}} ref={'username'}/>
                 {this.state.usernameErr ? (
@@ -72,7 +72,7 @@ class Login extends React.Component {
                 ) : null}
             </div>
             <div className="mt3 pb5">
-              <button className="w-100 pointer f5 link dim bg-pink tc pv2 b dib white" onClick={(ev) => this.attemptLogin(ev)}>Login</button>
+              <button className="w-100 pointer f5 link dim bg-pink tc pv2 b dib white" onClick={(ev) => this.attemptLogin(ev)} style={{borderColor: 'transparent'}}>Login</button>
             </div>
           </div>
         </div>
