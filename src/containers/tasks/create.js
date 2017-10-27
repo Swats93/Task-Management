@@ -3,8 +3,6 @@ import { push } from 'react-router-redux';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {css} from 'glamor';
-// import {
-// } from '../../modules/counter'
 import {
   loginUser
 } from '../../modules/auth';
