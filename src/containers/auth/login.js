@@ -16,13 +16,13 @@ class Login extends React.Component {
 
   componentWillMount() {
     if(this.props.isLoggedIn) {
-      this.props.history.push('/goals');
+      this.props.history.push('/tasklist');
     }
   }
 
   componentWillReceiveProps(nextProps) {
       if(nextProps.isLoggedIn) {
-        this.props.history.push('/goals');
+        this.props.history.push('/tasklist');
       } else {
         this.setState({serverErr: nextProps.err});
       }
