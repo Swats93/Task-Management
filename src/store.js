@@ -8,21 +8,16 @@ export const history = createHistory();
 
 const initialState = {};
 const enhancers = [];
-const middleware = [
-  thunk,
-  routerMiddleware(history)
-];
 
 if (process.env.NODE_ENV === 'development') {
   const devToolsExtension = window.devToolsExtension;
-
   if (typeof devToolsExtension === 'function') {
     enhancers.push(devToolsExtension());
   }
 }
 
 const composedEnhancers = compose(
-  applyMiddleware(...middleware),
+  applyMiddleware(thunk, routerMiddleware(history)),
   ...enhancers
 )
 

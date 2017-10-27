@@ -16,5 +16,5 @@ export const credentials = [
     username: "lorem",
     password: "lorem12",
     isAdmin: false
-  },
+  }
 ];

@@ -1,7 +1,6 @@
 import React from 'react';
 import {css} from 'glamor';
 import { push } from 'react-router-redux';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 const Goals = props => (
