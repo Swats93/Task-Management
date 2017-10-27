@@ -1,10 +1,8 @@
 import React from 'react';
 import { push } from 'react-router-redux';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {css} from 'glamor';
-// import {
-// } from '../../modules/counter'
+
 import {
   loginUser
 } from '../../modules/auth';
@@ -12,7 +10,8 @@ import {
 class Login extends React.Component {
   state = {
     usernameErr: false,
-    passwordErr: false
+    passwordErr: false,
+    serverErr: null
   }
 
   componentWillMount() {
@@ -21,8 +20,12 @@ class Login extends React.Component {
     }
   }
 
-  componentWillReceiveProps(props, nextProps) {
-    console.log({props, nextProps});
+  componentWillReceiveProps(nextProps) {
+      if(nextProps.isLoggedIn) {
+        this.props.history.push('/goals');
+      } else {
+        this.setState({serverErr: nextProps.err});
+      }
   }
 
 
@@ -35,14 +38,13 @@ class Login extends React.Component {
       if (username.length === 0) {
         err.usernameErr = true;
       }
-
       if (password.length <= 3) {
         err.passwordErr = true;
       }
       if (err.usernameErr || err.passwordErr) {
         this.setState(err)
       } else {
-        this.props.attemptLogin({username, password});
+        this.props.dispatch(loginUser({username, password}));
       }
     });
   }
@@ -66,9 +68,12 @@ class Login extends React.Component {
           ) : null}
         </div>
         <div className="mt3">
-          <a className="w-100 pointer f5 link dim bg-pink tc pv2 b dib white"
-            onClick={(ev) => this.attemptLogin(ev)}>Login</a>
+          <button className="w-100 pointer f5 link dim bg-pink tc pv2 b dib white"
+            onClick={(ev) => this.attemptLogin(ev)}>Login</button>
         </div>
+        {this.state.serverErr ? (
+          <div>{this.state.serverErr}</div>
+        ) : null}
       </div>
     )
   }
@@ -81,13 +86,7 @@ const mapStateToProps = (state) => {
     isLoggedIn: state.auth.isLoggedIn
   }
 }
-const mapDispatchToProps = dispatch => bindActionCreators({
-  attemptLogin: (data) => {
-    return dispatch(loginUser(data));
-  }
-}, dispatch)
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(Login)
