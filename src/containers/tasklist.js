@@ -12,6 +12,7 @@ class TaskList extends React.Component {
   }
 
   render() {
+    console.log("user", this.props.user);
     return (
       <div className="w-100 fl-ns cf">
         <div className="w-100 fl-ns bg-light-gray bb bw2 b--black-20 cf f3">
@@ -19,6 +20,7 @@ class TaskList extends React.Component {
           <div className="w-10 fr-ns pr4 pt2 pb2">Logout</div>
         </div>
         <div className="w-100 h-100 fl-ns pb4 cf bg-light-gray">
+        
           <div className="mw8 mt4 mb4 pt3 center pb5 bg-white" style={{boxShadow: 'rgba(0,0,0,0.5) 0px 0px 8px 0px'}}>
             <div className="w-25 fl-ns pl3">
               <div className="w-20 fl-ns ml2">
@@ -73,6 +75,7 @@ class TaskList extends React.Component {
               </div>
             </div>
           </div>
+         
           <div className="mw8 mt4 center pb2 bg-white" style={{boxShadow: 'rgba(0,0,0,0.5) 0px 0px 8px 0px'}}>
             <div className="w-100 pt3 cf tr">
               <button className="pointer f6 link dim bg-pink pl3 pr3 tc pv2 b dib white" onClick={() => this.props.history.push('/create')} style={{borderColor: 'transparent'}}>Create</button>

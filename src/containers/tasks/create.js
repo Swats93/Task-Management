@@ -4,8 +4,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {css} from 'glamor';
 import {
-  loginUser
-} from '../../modules/auth';
+  createTask
+} from '../../modules/tasks';
 
 class Create extends React.Component {
   state = {
@@ -16,7 +16,15 @@ class Create extends React.Component {
     priorityErr: false
   }
 
-  onSave(ev) {
+  // componentWillReceiveProps(nextProps) {
+  //   console.log("task_details", nextProps.task_details);
+  //     if(this.props.task_details.length != nextProps.task_details.length) {
+  //       this.props.history.push('/tasklist');
+  //     }
+  // }
+
+
+  onTaskSave(ev) {
     ev.preventDefault();
     const err = { titleErr: false, descriptionErr: false, assigneeErr: false, finishByErr: false, priorityErr: false };
     this.setState(err, () => {
@@ -47,6 +55,8 @@ class Create extends React.Component {
       if (err.titleErr || err.descriptionErr || err.assigneeErr || err.finishByErr || err.priorityErr) {
         this.setState(err)
       } else {
+        //this.props.history.push('/tasklist');
+        this.props.dispatch(createTask({title, description, assignee, finishBy, priority}));
         this.props.history.push('/tasklist');
       }
     });
@@ -96,7 +106,7 @@ class Create extends React.Component {
                 ) : null}
             </div>
             <div className="mt3 tc">
-              <button className="mt2 w-40 pointer f5 link dim bg-pink tc pv2 b dib white" onClick={(ev) => this.onSave(ev)}>Save</button>
+              <button className="mt2 w-40 pointer f5 link dim bg-pink tc pv2 b dib white" onClick={(ev) => this.onTaskSave(ev)}>Save</button>
             </div>
 
           </div>
