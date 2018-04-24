@@ -53,20 +53,25 @@ class Login extends React.Component {
   render() {
     return (
       <div className="w-100 h-100 fl-ns cf bg-light-gray">
-        <div className="mw8 mt5 mb5 center pb4 bg-white" style={{boxShadow: 'rgba(0,0,0,0.5) 0px 0px 8px 0px'}}>
+        <div className="mw8 mt5 mb5 center pb4 bg-white" 
+        style={{boxShadow: 'rgba(0,0,0,0.5) 0px 0px 8px 0px'}}>
           <div className="tc f3 pt4 b">Final Quadrant Task Management</div>
           <div className="mt4 mw5 pb5 center">
             <div className="tc mt5 f4 b">Welcome Back !</div>
             <div className="f5 mt3 b">Email</div>
             <div className="mt2">
-              <input className="w-100 f6" placeholder="Enter your username" type="text" style={{borderColor: 'transparent', boxShadow: 'rgba(0,0,0,0.5) 0px 0px 8px 0px', height: '35px'}} ref={'username'}/>
+              <input className="w-100 f6" placeholder="Enter your username" type="text" 
+              style={{borderColor: 'transparent', boxShadow: 'rgba(0,0,0,0.5) 0px 0px 8px 0px', 
+              height: '35px'}} ref={'username'}/>
                 {this.state.usernameErr ? (
                   <div>Username is not valid</div>
                 ) : null}
             </div>
             <div className="f5 b mt3">Password</div>
             <div className="mt2">
-              <input className="w-100 f6" placeholder="Enter your password" type="password" ref={'password'} style={{borderColor: 'transparent', boxShadow: 'rgba(0,0,0,0.5) 0px 0px 8px 0px', height: '35px'}} />
+              <input className="w-100 f6" placeholder="Enter your password" type="password" 
+              ref={'password'} style={{borderColor: 'transparent', 
+              boxShadow: 'rgba(0,0,0,0.5) 0px 0px 8px 0px', height: '35px'}} />
                 {this.state.passwordErr ? (
                   <div>Password is not valid</div>
                 ) : null}
@@ -85,7 +90,6 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('state', {state});
   return {
     err: state.auth.err,
     isLoggedIn: state.auth.isLoggedIn

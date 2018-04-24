@@ -6,13 +6,20 @@ import moment from 'moment';
 
 import {all, bell, calender, planner, view, edit} from '../assets/images';
 import {task_details} from '../stub/tasks';
+import {loadTaskList, filterTask} from '../modules/tasks';
 
 class TaskList extends React.Component {
-  state = {
+
+  componentWillMount() {
+    this.props.dispatch(loadTaskList());
+  }
+
+  onTaskFilter(ev) {
+    this.props.dispatch(filterTask(ev.target.value));
   }
 
   render() {
-    console.log("user", this.props.user);
+    const filteredtask = this.props.filteredtask.length === 0 ? this.props.taskList : this.props.filteredtask;
     return (
       <div className="w-100 fl-ns cf">
         <div className="w-100 fl-ns bg-light-gray bb bw2 b--black-20 cf f3">
@@ -81,6 +88,7 @@ class TaskList extends React.Component {
               <button className="pointer f6 link dim bg-pink pl3 pr3 tc pv2 b dib white" onClick={() => this.props.history.push('/create')} style={{borderColor: 'transparent'}}>Create</button>
               <select
                 className="pointer ml2 mr2 f6 dim bg-pink tc pv2 b dib white" style={{borderColor: 'transparent'}}
+                onChange={this.onTaskFilter}
                 >
                   <option value="all">All</option>
                   <option value="new">New</option>
@@ -102,7 +110,7 @@ class TaskList extends React.Component {
                     </tr>
                   </thead>
                   <tbody className="lh-copy">
-                  {task_details.map((task)=>(
+                  {filteredtask.map((task)=>(
                     <tr>
                       <td className="pv3 pr3 bb b--black-20">{task.title}</td>
                       <td className="pv3 pr3 bb b--black-20">{task.status}</td>
@@ -130,11 +138,24 @@ class TaskList extends React.Component {
               </div>
             </div>
           </div>
+
+          
         </div>
       </div>
     )
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    err: state.auth.err,
+    isLoggedIn: state.auth.isLoggedIn,
+    user: state.auth.user,
+    taskList: state.tasks.taskList,
+    filteredtask: state.tasks.filteredtask
+  }
+}
+
 export default connect(
+  mapStateToProps
 )(TaskList)

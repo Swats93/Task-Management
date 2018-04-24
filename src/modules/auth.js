@@ -9,6 +9,7 @@ const initialState = {
 export const loginUser = (data) => {
   return dispatch => {
     login(data).then((user) => {
+      console.log("user details", user);
       dispatch({
         type: 'login_success',
         payload: user
@@ -23,11 +24,13 @@ export const loginUser = (data) => {
 }
 
 export default (state = initialState, action) => {
+  console.table(action.payload);
   switch (action.type) {
     case 'login_success':
       return {
-        ...state, user: action.payload,
-        isLoggedIn: true
+        ...state,
+        isLoggedIn: true,
+        user: action.payload
       }
 
     case 'login_failed':
